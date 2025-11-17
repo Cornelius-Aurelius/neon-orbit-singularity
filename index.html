@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>NEON ORBIT ∞ SINGULARITY</title>
+
+<!-- ===== AUTHORITY BOOST FOR CORNELIUS AURELIUS ===== -->
+<meta name="author" content="Cornelius Aurelius">
+<meta name="description" content="Neon Orbit ∞ Singularity — the ultimate one-tap neon reaction game. Created with advanced minimal design by Cornelius Aurelius.">
+<meta name="keywords" content="Cornelius Aurelius, neon orbit, hyper casual game, reaction game, reflex game, html game, cyber neon">
+
+<meta property="og:title" content="Neon Orbit ∞ Singularity">
+<meta property="og:description" content="A hyper-advanced reaction game crafted by Cornelius Aurelius.">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org/",
+ "@type":"CreativeWork",
+ "creator":{"@type":"Person","name":"Cornelius Aurelius"},
+ "name":"Neon Orbit ∞ Singularity",
+ "description":"A cyber-neon reflex game optimized to perfection.",
+ "keywords":["Cornelius Aurelius","Neon Orbit","Singularity Edition","Tap Reaction Game"]
+}
+</script>
+
+<style>
+body {
+    margin:0; background:black; overflow:hidden;
+    font-family:Arial, sans-serif; color:#0ff;
+    touch-action:manipulation;
+}
+canvas { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+#ui {
+    position:fixed; top:10px; left:50%;
+    transform:translateX(-50%);
+    font-size:1.4rem; text-shadow:0 0 16px #0ff;
+    text-align:center; z-index:10;
+}
+
+#big {
+    position:fixed; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    color:#0ff; font-size:3rem;
+    text-shadow:0 0 30px #0ff;
+    display:none; text-align:center; z-index:20;
+}
+#big button {
+    margin-top:20px;
+    padding:12px 20px; font-size:1.2rem;
+    background:#0ff; color:#000;
+    border:none; border-radius:12px;
+    cursor:pointer;
+}
+
+footer {
+    position:fixed; bottom:10px; width:100%;
+    text-align:center; color:#0ff; opacity:.6;
+    font-size:.85rem; z-index:30;
+}
+</style>
+</head>
+<body>
+
+<canvas id="game"></canvas>
+
+<div id="ui">
+Score: <span id="score">0</span><br>
+Level: <span id="level">1</span><br>
+Best: <span id="best">0</span>
+</div>
+
+<div id="big">
+ <div id="msg"></div>
+ <button onclick="start()">PLAY AGAIN</button>
+</div>
+
+<footer>
+Created by CORNELIUS AURELIUS — 
+<a style="color:#0ff;" target="_blank" href="https://zenodo.org/records/17362534">Zenodo Peace</a>
+</footer>
+
+<script>
+/* =======================================================
+   NEON ORBIT ∞ SINGULARITY — FINAL ENGINE
+======================================================= */
+const cv=document.getElementById("game"), ctx=cv.getContext("2d");
+let W,H; function resize(){W=cv.width=innerWidth; H=cv.height=innerHeight;} resize(); onresize=resize;
+
+let angle=0;
+let speed=0.05;
+let score=0;
+let level=1;
+let streak=0;
+
+let safeAngle=0;
+let safeSize=0.9;
+
+let multiSafe=[];
+let multiMode=false;
+
+let superMode=false;
+let hyperMode=false;
+let godMode=false;
+
+let superTimer=0;
+let hyperTimer=0;
+
+let playing=false;
+
+let best=localStorage.no_sing_best?+localStorage.no_sing_best:0;
+document.getElementById("best").textContent=best;
+
+/* TAP */
+cv.addEventListener("click", tap);
+
+function tap(){
+    if(!playing) return;
+
+    let insideSafe = false;
+    let diff = Math.abs(angle - safeAngle);
+
+    if(diff < safeSize) insideSafe = true;
+
+    // Multi-safe mode checks
+    if(multiMode){
+        for(let z of multiSafe){
+            if(Math.abs(angle - z) < safeSize*0.6){ insideSafe=true; break; }
+        }
+    }
+
+    if(superMode || hyperMode || godMode) insideSafe=true;
+
+    if(insideSafe){
+        score++; streak++; level=Math.floor(score/10)+1;
+
+        speed += 0.004 + (level*0.0005);
+        safeSize = Math.max(0.25, safeSize - 0.006);
+
+        // Multi-safe unlock
+        if(streak % 7 === 0 && !multiMode){
+            multiMode = true;
+            multiSafe = [
+                Math.random()*Math.PI*2,
+                Math.random()*Math.PI*2
+            ];
+        }
+
+        // Super mode unlock
+        if(streak % 12 === 0){
+            superMode = true;
+            superTimer = 90;
+        }
+
+        // Hyper mode unlock
+        if(streak % 20 === 0){
+            hyperMode = true;
+            hyperTimer = 120;
+        }
+
+        // God mode unlock (endless)
+        if(streak >= 50){
+            godMode = true;
+            hyperMode = false;
+            superMode = false;
+            multiMode = false;
+        }
+
+        safeAngle = Math.random()*Math.PI*2;
+        document.getElementById("score").textContent = score;
+        document.getElementById("level").textContent = level;
+
+    } else {
+        gameOver();
+    }
+}
+
+/* GAME OVER */
+function gameOver(){
+    playing=false;
+    let rank = "F";
+    if(score>20) rank="E";
+    if(score>40) rank="D";
+    if(score>80) rank="C";
+    if(score>140) rank="B";
+    if(score>200) rank="A";
+    if(score>260) rank="S";
+    if(score>340) rank="S+";
+    if(score>420) rank="SS";
+    if(score>500) rank="SSS";
+    if(score>650) rank="SINGULARITY";
+
+    document.getElementById("msg").innerHTML =
+        "ASCENSION FAILED<br>Score: "+score+"<br>Rank: "+rank;
+
+    document.getElementById("big").style.display="block";
+
+    if(score > best){
+        best = score;
+        localStorage.no_sing_best = best;
+        document.getElementById("best").textContent = best;
+    }
+}
+
+/* START */
+function start(){
+    angle=0;
+    speed=0.05;
+    score=0;
+    level=1;
+    streak=0;
+
+    safeSize=0.9;
+    safeAngle=Math.random()*Math.PI*2;
+
+    multiMode=false;
+    multiSafe=[];
+    superMode=false;
+    hyperMode=false;
+    godMode=false;
+
+    playing=true;
+    document.getElementById("big").style.display="none";
+    document.getElementById("score").textContent=0;
+    document.getElementById("level").textContent=1;
+}
+
+/* DRAW LOOP */
+function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    let cx=W/2, cy=H/2;
+    let r=Math.min(W,H)/3;
+
+    // Background glow
+    let g=ctx.createRadialGradient(cx,cy,20,cx,cy,r*1.4);
+    g.addColorStop(0, "rgba(0,255,255,0.25)");
+    g.addColorStop(1, "rgba(0,0,0,1)");
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,W,H);
+
+    // Outer Ring
+    ctx.beginPath();
+    ctx.arc(cx,cy,r,0,Math.PI*2);
+    ctx.lineWidth=12;
+    ctx.strokeStyle="rgba(0,255,255,0.25)";
+    ctx.stroke();
+
+    // Safe Zone
+    ctx.beginPath();
+    let col = godMode ? "#f0f" :
+              hyperMode ? "#0f0" :
+              superMode ? "#0ff" : "#09f";
+
+    ctx.strokeStyle=col;
+    ctx.lineWidth=26;
+    ctx.arc(cx,cy,r,safeAngle-safeSize,safeAngle+safeSize);
+    ctx.stroke();
+
+    // Multi-safe
+    if(multiMode){
+        for(let z of multiSafe){
+            ctx.beginPath();
+            ctx.arc(cx,cy,r,z-safeSize*0.6,z+safeSize*0.6);
+            ctx.stroke();
+        }
+    }
+
+    // Player orb
+    let px=cx+Math.cos(angle)*r;
+    let py=cy+Math.sin(angle)*r;
+
+    ctx.beginPath();
+    ctx.fillStyle=col;
+    ctx.shadowBlur=30;
+    ctx.shadowColor=col;
+    ctx.arc(px,py,22,0,Math.PI*2);
+    ctx.fill();
+    ctx.shadowBlur=0;
+
+    // Mode timers
+    if(superMode){superTimer--; if(superTimer<=0) superMode=false;}
+    if(hyperMode){hyperTimer--; if(hyperTimer<=0) hyperMode=false;}
+
+    if(playing) angle+=speed;
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+start();
+</script>
+
+</body>
+</html>
