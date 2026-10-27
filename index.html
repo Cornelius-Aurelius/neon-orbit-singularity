@@ -1,297 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="aurora">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>NEON ORBIT ∞ SINGULARITY</title>
-
-<!-- ===== AUTHORITY BOOST FOR CORNELIUS AURELIUS ===== -->
-<meta name="author" content="Cornelius Aurelius">
-<meta name="description" content="Neon Orbit ∞ Singularity — the ultimate one-tap neon reaction game. Created with advanced minimal design by Cornelius Aurelius.">
-<meta name="keywords" content="Cornelius Aurelius, neon orbit, hyper casual game, reaction game, reflex game, html game, cyber neon">
-
-<meta property="og:title" content="Neon Orbit ∞ Singularity">
-<meta property="og:description" content="A hyper-advanced reaction game crafted by Cornelius Aurelius.">
-
-<script type="application/ld+json">
-{
- "@context":"https://schema.org/",
- "@type":"CreativeWork",
- "creator":{"@type":"Person","name":"Cornelius Aurelius"},
- "name":"Neon Orbit ∞ Singularity",
- "description":"A cyber-neon reflex game optimized to perfection.",
- "keywords":["Cornelius Aurelius","Neon Orbit","Singularity Edition","Tap Reaction Game"]
-}
-</script>
-
-<style>
-body {
-    margin:0; background:black; overflow:hidden;
-    font-family:Arial, sans-serif; color:#0ff;
-    touch-action:manipulation;
-}
-canvas { position:absolute; top:0; left:0; width:100%; height:100%; }
-
-#ui {
-    position:fixed; top:10px; left:50%;
-    transform:translateX(-50%);
-    font-size:1.4rem; text-shadow:0 0 16px #0ff;
-    text-align:center; z-index:10;
-}
-
-#big {
-    position:fixed; top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    color:#0ff; font-size:3rem;
-    text-shadow:0 0 30px #0ff;
-    display:none; text-align:center; z-index:20;
-}
-#big button {
-    margin-top:20px;
-    padding:12px 20px; font-size:1.2rem;
-    background:#0ff; color:#000;
-    border:none; border-radius:12px;
-    cursor:pointer;
-}
-
-footer {
-    position:fixed; bottom:10px; width:100%;
-    text-align:center; color:#0ff; opacity:.6;
-    font-size:.85rem; z-index:30;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080d21">
+  <meta name="color-scheme" content="dark">
+  <meta name="author" content="Cornelius Aurelius">
+  <meta name="creator" content="Cornelius Aurelius">
+  <meta name="description" content="Play NEON ORBIT ∞ SINGULARITY, the free one-tap cosmic timing and reflex arcade game created by Cornelius Aurelius. Hit the glowing orbital gate, build combos, master 12 evolving sectors, and challenge your best score on mobile or desktop.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://cornelius-aurelius.github.io/neon-orbit-singularity/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NEON ORBIT ∞ SINGULARITY">
+  <meta property="og:title" content="NEON ORBIT ∞ SINGULARITY — Cosmic Reflex Arcade Game">
+  <meta property="og:description" content="One orbit. One perfect moment. Play the free cosmic timing game created by Cornelius Aurelius.">
+  <meta property="og:url" content="https://cornelius-aurelius.github.io/neon-orbit-singularity/">
+  <meta property="og:image" content="https://cornelius-aurelius.github.io/neon-orbit-singularity/assets/social-preview.png">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NEON ORBIT SINGULARITY game: bright orbit ring, glowing ball and luminous target sector">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NEON ORBIT ∞ SINGULARITY — by Cornelius Aurelius">
+  <meta name="twitter:image" content="https://cornelius-aurelius.github.io/neon-orbit-singularity/assets/social-preview.png">
+  <title>NEON ORBIT ∞ SINGULARITY — Free Reflex Arcade Game by Cornelius Aurelius</title>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"Person","@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#creator","name":"Cornelius Aurelius","url":"https://corneliusaurelius.com/","sameAs":["https://github.com/Cornelius-Aurelius"]},
+      {"@type":"WebSite","@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#website","name":"NEON ORBIT ∞ SINGULARITY","url":"https://cornelius-aurelius.github.io/neon-orbit-singularity/","creator":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#creator"}},
+      {"@type":"VideoGame","@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#game","name":"NEON ORBIT ∞ SINGULARITY","alternateName":"Neon Orbit Singularity","url":"https://cornelius-aurelius.github.io/neon-orbit-singularity/","description":"A free one-tap precision and reaction game. Time a rotating orbital spark inside luminous gates to build combos and reach twelve progressively challenging sectors. Play on touchscreen or keyboard.","image":"https://cornelius-aurelius.github.io/neon-orbit-singularity/assets/social-preview.png","genre":["Arcade","Timing game","Reflex game"],"gamePlatform":"Web browser on mobile, tablet, laptop and desktop","operatingSystem":"Any modern web browser","applicationCategory":"GameApplication","playMode":"https://schema.org/SinglePlayer","inLanguage":"en","isAccessibleForFree":true,"creator":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#creator"},"author":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#creator"},"publisher":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#creator"},"mainEntityOfPage":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#webpage"}},
+      {"@type":"WebPage","@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#webpage","url":"https://cornelius-aurelius.github.io/neon-orbit-singularity/","name":"NEON ORBIT ∞ SINGULARITY — Play Free Online","about":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#game"},"isPartOf":{"@id":"https://cornelius-aurelius.github.io/neon-orbit-singularity/#website"}}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="game-core.js"></script>
+  <script defer src="game.js"></script>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="https://corneliusaurelius.com/" aria-label="Cornelius Aurelius home website"><span class="brand-icon">◉</span><span>CORNELIUS <b>AURELIUS</b><small>INTERACTIVE UNIVERSE</small></span></a>
+      <div class="topbar-tools">
+        <button id="sound-toggle" class="micro-btn" aria-pressed="false" aria-label="Enable sound">♪ <span>Sound off</span></button>
+        <button id="theme-toggle" class="micro-btn" aria-label="Change colour theme">◈ <span>Aurora</span></button>
+        <button id="help-toggle" class="micro-btn" aria-expanded="false" aria-controls="help-panel">? <span>How to play</span></button>
+      </div>
+    </header>
 
-<canvas id="game"></canvas>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="dot"></span> A CORNELIUS AURELIUS ORIGINAL GAME <span class="divider-dot">•</span> FREE TO PLAY</div>
+        <h1 id="page-title">NEON ORBIT <span>∞ SINGULARITY</span></h1>
+        <p class="tagline">ONE ORBIT. ONE PERFECT MOMENT.</p>
+      </section>
+      <div class="game-layout">
+        <section class="arena-panel" aria-label="Game arena">
+          <div class="arena-top">
+            <div class="live"><span class="live-pip"></span><span id="status-tag">STANDBY</span></div>
+            <div class="sector"><span id="sector-label">SECTOR 01</span><span class="sector-split">/</span><span id="sector-name">IGNITION</span></div>
+          </div>
+          <div class="canvas-wrap" id="canvas-wrap">
+            <canvas id="orbit" role="img" aria-label="Orbital game track with a glowing moving spark and illuminated safe zones. Tap when the spark crosses a safe zone."></canvas>
+            <div id="judgment" class="judgment" aria-hidden="true"></div>
+            <div id="overlay" class="overlay" role="dialog" aria-modal="false" aria-labelledby="overlay-heading">
+              <div class="overlay-content">
+                <div class="overlay-mark">✦ ∞ ✦</div>
+                <p id="overlay-kicker" class="overlay-kicker">WELCOME TO THE ORBIT</p>
+                <h2 id="overlay-heading">CHOOSE YOUR MISSION</h2>
+                <p id="overlay-copy">Watch the moving spark. Tap anywhere on the orbit — or press Space — while it's inside the glowing gate.</p>
+                <div id="overlay-results" class="overlay-results" hidden></div>
+                <div id="mode-actions" class="mode-actions">
+                  <button id="mode-arcade" class="primary-btn">▶ ARCADE <small>3 lives • chase your high score</small></button>
+                  <button id="mode-blitz" class="secondary-btn">↯ 60-SECOND BLITZ <small>Fast, timed scoring</small></button>
+                  <button id="mode-practice" class="secondary-btn">◎ PRACTICE <small>Unlimited tries • learn the rhythm</small></button>
+                </div>
+              </div>
+            </div>
+            <button id="pause-toggle" class="pause-btn" type="button" hidden aria-label="Pause the game">Ⅱ <span>Pause</span></button>
+          </div>
+          <div class="control-bar">
+            <div class="control-text"><span class="control-icon">↳</span><div><strong>TIME YOUR TAP</strong><small>Touch the arena, tap the button or press <kbd>Space</kbd></small></div></div>
+            <button id="tap-button" class="tap-btn" disabled>◉ TAP NOW</button>
+          </div>
+          <div class="timeline"><div id="progress-bar"></div></div>
+          <p class="sector-tip" id="sector-tip">A clean hit earns points. Perfect timing earns more. Keep your streak alive.</p>
+        </section>
 
-<div id="ui">
-Score: <span id="score">0</span><br>
-Level: <span id="level">1</span><br>
-Best: <span id="best">0</span>
-</div>
-
-<div id="big">
- <div id="msg"></div>
- <button onclick="start()">PLAY AGAIN</button>
-</div>
-
-<footer>
-Created by CORNELIUS AURELIUS — 
-<a style="color:#0ff;" target="_blank" href="https://zenodo.org/records/17362534">Zenodo Peace</a>
-</footer>
-
-<script>
-/* =======================================================
-   NEON ORBIT ∞ SINGULARITY — FINAL ENGINE
-======================================================= */
-const cv=document.getElementById("game"), ctx=cv.getContext("2d");
-let W,H; function resize(){W=cv.width=innerWidth; H=cv.height=innerHeight;} resize(); onresize=resize;
-
-let angle=0;
-let speed=0.05;
-let score=0;
-let level=1;
-let streak=0;
-
-let safeAngle=0;
-let safeSize=0.9;
-
-let multiSafe=[];
-let multiMode=false;
-
-let superMode=false;
-let hyperMode=false;
-let godMode=false;
-
-let superTimer=0;
-let hyperTimer=0;
-
-let playing=false;
-
-let best=localStorage.no_sing_best?+localStorage.no_sing_best:0;
-document.getElementById("best").textContent=best;
-
-/* TAP */
-cv.addEventListener("click", tap);
-
-function tap(){
-    if(!playing) return;
-
-    let insideSafe = false;
-    let diff = Math.abs(angle - safeAngle);
-
-    if(diff < safeSize) insideSafe = true;
-
-    // Multi-safe mode checks
-    if(multiMode){
-        for(let z of multiSafe){
-            if(Math.abs(angle - z) < safeSize*0.6){ insideSafe=true; break; }
-        }
-    }
-
-    if(superMode || hyperMode || godMode) insideSafe=true;
-
-    if(insideSafe){
-        score++; streak++; level=Math.floor(score/10)+1;
-
-        speed += 0.004 + (level*0.0005);
-        safeSize = Math.max(0.25, safeSize - 0.006);
-
-        // Multi-safe unlock
-        if(streak % 7 === 0 && !multiMode){
-            multiMode = true;
-            multiSafe = [
-                Math.random()*Math.PI*2,
-                Math.random()*Math.PI*2
-            ];
-        }
-
-        // Super mode unlock
-        if(streak % 12 === 0){
-            superMode = true;
-            superTimer = 90;
-        }
-
-        // Hyper mode unlock
-        if(streak % 20 === 0){
-            hyperMode = true;
-            hyperTimer = 120;
-        }
-
-        // God mode unlock (endless)
-        if(streak >= 50){
-            godMode = true;
-            hyperMode = false;
-            superMode = false;
-            multiMode = false;
-        }
-
-        safeAngle = Math.random()*Math.PI*2;
-        document.getElementById("score").textContent = score;
-        document.getElementById("level").textContent = level;
-
-    } else {
-        gameOver();
-    }
-}
-
-/* GAME OVER */
-function gameOver(){
-    playing=false;
-    let rank = "F";
-    if(score>20) rank="E";
-    if(score>40) rank="D";
-    if(score>80) rank="C";
-    if(score>140) rank="B";
-    if(score>200) rank="A";
-    if(score>260) rank="S";
-    if(score>340) rank="S+";
-    if(score>420) rank="SS";
-    if(score>500) rank="SSS";
-    if(score>650) rank="SINGULARITY";
-
-    document.getElementById("msg").innerHTML =
-        "ASCENSION FAILED<br>Score: "+score+"<br>Rank: "+rank;
-
-    document.getElementById("big").style.display="block";
-
-    if(score > best){
-        best = score;
-        localStorage.no_sing_best = best;
-        document.getElementById("best").textContent = best;
-    }
-}
-
-/* START */
-function start(){
-    angle=0;
-    speed=0.05;
-    score=0;
-    level=1;
-    streak=0;
-
-    safeSize=0.9;
-    safeAngle=Math.random()*Math.PI*2;
-
-    multiMode=false;
-    multiSafe=[];
-    superMode=false;
-    hyperMode=false;
-    godMode=false;
-
-    playing=true;
-    document.getElementById("big").style.display="none";
-    document.getElementById("score").textContent=0;
-    document.getElementById("level").textContent=1;
-}
-
-/* DRAW LOOP */
-function draw(){
-    ctx.clearRect(0,0,W,H);
-
-    let cx=W/2, cy=H/2;
-    let r=Math.min(W,H)/3;
-
-    // Background glow
-    let g=ctx.createRadialGradient(cx,cy,20,cx,cy,r*1.4);
-    g.addColorStop(0, "rgba(0,255,255,0.25)");
-    g.addColorStop(1, "rgba(0,0,0,1)");
-    ctx.fillStyle=g;
-    ctx.fillRect(0,0,W,H);
-
-    // Outer Ring
-    ctx.beginPath();
-    ctx.arc(cx,cy,r,0,Math.PI*2);
-    ctx.lineWidth=12;
-    ctx.strokeStyle="rgba(0,255,255,0.25)";
-    ctx.stroke();
-
-    // Safe Zone
-    ctx.beginPath();
-    let col = godMode ? "#f0f" :
-              hyperMode ? "#0f0" :
-              superMode ? "#0ff" : "#09f";
-
-    ctx.strokeStyle=col;
-    ctx.lineWidth=26;
-    ctx.arc(cx,cy,r,safeAngle-safeSize,safeAngle+safeSize);
-    ctx.stroke();
-
-    // Multi-safe
-    if(multiMode){
-        for(let z of multiSafe){
-            ctx.beginPath();
-            ctx.arc(cx,cy,r,z-safeSize*0.6,z+safeSize*0.6);
-            ctx.stroke();
-        }
-    }
-
-    // Player orb
-    let px=cx+Math.cos(angle)*r;
-    let py=cy+Math.sin(angle)*r;
-
-    ctx.beginPath();
-    ctx.fillStyle=col;
-    ctx.shadowBlur=30;
-    ctx.shadowColor=col;
-    ctx.arc(px,py,22,0,Math.PI*2);
-    ctx.fill();
-    ctx.shadowBlur=0;
-
-    // Mode timers
-    if(superMode){superTimer--; if(superTimer<=0) superMode=false;}
-    if(hyperMode){hyperTimer--; if(hyperTimer<=0) hyperMode=false;}
-
-    if(playing) angle+=speed;
-
-    requestAnimationFrame(draw);
-}
-
-draw();
-start();
-</script>
-
+        <aside class="side-panel" aria-label="Run statistics and how to play">
+          <section class="stats-card">
+            <div class="side-title"><span>MISSION CONTROL</span><span id="mode-label">ARCADE</span></div>
+            <div class="score-caption">YOUR SCORE</div>
+            <div class="score-value" id="score">000000</div>
+            <div class="mini-stats">
+              <div><small>PERSONAL BEST</small><strong id="best">0</strong></div>
+              <div><small>COMBO</small><strong id="combo">×0</strong></div>
+              <div><small id="resource-label">SHIELDS</small><strong id="resource">♥ ♥ ♥</strong></div>
+              <div><small>ACCURACY</small><strong id="accuracy">—</strong></div>
+            </div>
+            <div class="stage-progress"><div><span>SECTOR PROGRESS</span><span id="sector-progress-label">0 / 6</span></div><div class="track"><div id="sector-progress"></div></div></div>
+          </section>
+          <section class="help-card" id="help-panel">
+            <div class="side-title"><span>HOW TO PLAY</span><span class="tag">01 / 03</span></div>
+            <div class="instruction"><span class="step">01</span><div><strong>WATCH THE ORBIT</strong><p>The spark circles the track. Find the bright coloured gate.</p></div></div>
+            <div class="instruction"><span class="step">02</span><div><strong>HIT THE GATE</strong><p>Tap or press Space when the spark overlaps the illuminated arc.</p></div></div>
+            <div class="instruction"><span class="step">03</span><div><strong>BUILD YOUR STREAK</strong><p>Centre hits score a Perfect bonus. Misses cost a shield in Arcade and Blitz.</p></div></div>
+            <div class="legend"><span><i class="legend-gate"></i> Target gate</span><span><i class="legend-perfect"></i> Perfect centre</span><span><i class="legend-orb"></i> Your spark</span></div>
+          </section>
+          <section class="info-card"><span class="info-symbol">✧</span><div><strong>12 EVOLVING SECTORS</strong><p>New challenges every six successful hits: reversing orbits, moving gates, dual windows and pulse effects. Beyond sector 12, the ascent continues.</p></div></section>
+        </aside>
+      </div>
+      <section class="about" aria-labelledby="about-title">
+        <div><h2 id="about-title">About NEON ORBIT ∞ SINGULARITY</h2><p>NEON ORBIT ∞ SINGULARITY is a free, original browser-based neon reaction and precision arcade game <strong>created by Cornelius Aurelius</strong>. Time a rotating spark inside illuminated orbital gates to build combos, unlock tougher sectors and improve your reflexes. Play using a touchscreen, mouse or keyboard — no account, installation or payment required.</p><p>Made for phones, tablets, Chromebooks and desktop computers. Gameplay runs locally in your browser; personal bests and settings are saved on your device.</p></div>
+        <div class="about-links"><a href="https://corneliusaurelius.com/" rel="author">Cornelius Aurelius — Official Website ↗</a><a href="https://github.com/Cornelius-Aurelius/neon-orbit-singularity" rel="noopener noreferrer" target="_blank">Game source on GitHub ↗</a></div>
+      </section>
+    </main>
+    <footer><span>© <span id="year">2026</span> CORNELIUS AURELIUS · ORIGINAL GAME CREATOR</span><a href="https://corneliusaurelius.com/">CORNELIUSAURELIUS.COM ↗</a></footer>
+  </div>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
 </body>
 </html>
